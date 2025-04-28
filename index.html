@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/ab15dfcb61.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+</head>
+<style>
+ /* body{
+    height: 100%;
+ } */
+ .container{
+    position: relative;
+    border:2px solid rgb(170, 167, 167);
+    height:550px;
+    width:400px;
+    margin-left:35%;
+    border-radius: 50px;
+    /* background-color: red; */
+}
+
+.banks{
+    /* border:2px solid red; */
+    border-radius: 20px;
+    box-shadow:  -1px -1px 10px 0.5px rgba(88, 81, 81, 0.644);
+    cursor: pointer;
+}
+#wema{
+    width:300px;
+    top:140px;
+    left:45px;
+    position: absolute;
+    background-color: blueviolet;
+    height: 40%;
+    z-index: 1;
+    transition: all 300ms ease-in-out;
+}
+#wema:hover{
+    /* background-color: yellow; */
+    top:130px;
+}
+#wema:hover::after{
+    content: "Wema Card";
+    color:white;
+    background-color:  rgb(80, 19, 138);
+    padding:5px 20px;
+    border-radius: 10px;
+    z-index: 90;
+    position: absolute;
+    top:-10px;
+    right: -60px;
+}
+#access{
+    width:330px;
+    top:170px;
+    left:32.5px;
+    position: absolute;
+    background-color: rgb(224, 230, 231);
+    height: 40%;
+    z-index: 50;
+    transition: all 300ms ease-in-out;
+}
+#access:hover{
+    /* background-color: yellow; */
+    top:150px;
+}
+#access:hover::after{
+    content: "Access Card";
+    color:white;
+    background-color: rgb(190, 123, 21);
+    padding:5px 20px;
+    border-radius: 10px;
+    z-index: 90;
+    position: absolute;
+    top:-10px;
+    right: -60px;
+}
+
+#opay{
+    width:350px;
+    top:200px;
+    left:22px;
+    position: absolute;
+    background-color: #3ead8c;
+    height: 40%;
+    z-index: 90;
+    transition: all 300ms ease-in-out;
+}
+#opay:hover{
+    /* background-color: yellow; */
+    top:210px;
+    left:10px;
+    width:370px;
+    height:43%;
+}
+#opay:hover::after{
+    content: "Opay Card";
+    color:white;
+    background-color: #13d399;
+    padding:5px 20px;
+    border-radius: 10px;
+    z-index: 90;
+    position: absolute;
+    top:-10px;
+    right: -60px;
+}
+.innerContainer{
+    position: relative;
+    margin:2px auto;
+    padding-left: 5px;
+    overflow: hidden;
+    /* border: 3px solid blue; */
+    width: 98%;
+    height:98%;
+}
+.circle{
+    border: 20px solid #13d399;
+    width: 110px;
+    height:110px;
+    position: absolute;
+    right: -50px;
+    top:20px;
+    border-radius: 100%;
+}
+
+.dash{
+    background-color: rgb(20, 20, 90);
+    border: 4px solid #3ead8c;;
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top:88px;
+    right: 76px;
+}
+.accessLine{
+    background-color: rgb(190, 123, 21);
+    /* border: 4px solid #3ead8c;; */
+    width: 10px;
+    height: 1000px;
+    position: absolute;
+    top:-200px;
+    left: -50px;
+    transform: rotate(40deg);
+}
+.logo{
+    width: 80px;
+}
+.accessLogo{
+    width: 80px;
+    margin: 10px 0px 0px 10px;
+
+}
+.chip{
+    width: 50px;
+    border-radius: 10px;
+    position:absolute;
+    top:82px;
+    left:40px;
+}
+.triangle{
+    border-top: 10px solid transparent;
+	border-right: 20px solid white;
+	border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 90px;
+}
+p{
+    /* border: 2px solid red; */
+    text-align: center;
+    font-weight: 900;
+    font: bolder;
+    letter-spacing: 5px;
+    font-size: 20px;
+    position: absolute;
+    top:110px;
+    width: 100%;
+    color:rgb(20, 20, 90);
+    text-shadow: 1px 1px 0.5px  rgba(0, 0, 0, 0.445);
+}
+.p2{
+    /* border:2px solid red; */
+    position: absolute;
+    top:135px;
+}
+.exp{
+    /* border: 2px solid blue; */
+    position: absolute;
+    color:white;
+    font-weight: 200;
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: -70px;
+}
+#opay .fas{
+    font-size: 25px;
+    transform: rotate(90deg);
+    color: rgb(20, 20, 90);
+    position: absolute;
+    top:88px ;
+    right: 10px;
+}
+#wema .chip{
+    width: 50px;
+    border-radius: 10px;
+    position:absolute;
+    top:82px;
+    left:20px;
+}
+#wema p{
+    color: rgb(221, 215, 228);;
+}
+#wema .wemalogo2{
+    /* border: 20px solid #13d399; */
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: -50px;
+    top:-20px;
+    border-radius: 100%;
+    opacity: 0.4;
+}
+#wema .innerContainer .logo {
+    /* border:2px solid red; */
+    position: absolute;
+    right: 18px;
+}
+#wema .fas{
+    font-size: 25px;
+    transform: rotate(90deg);
+    color: rgb(221, 217, 224);
+    position: absolute;
+    top:88px ;
+    left: 70px;
+}
+#wema .nameNtype{
+    /* border:3px solid red; */
+    display: flex;
+    justify-content: space-between;
+    color:rgb(221, 215, 228);
+    align-items: center;
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 17px;
+    width: 90%;
+    margin: 0px auto;
+    top: 185px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 90;
+    text-shadow: 1px 1px 0.5px  rgba(0, 0, 0, 0.445);
+}
+#wema .nameNtype .type img{
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    width: 60px;
+}
+#wema .nameNtype .type .cardText{
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color:rgb(255, 255, 255);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+#wema .p2{
+    font-weight: 200;
+    letter-spacing: 0.5px;
+}
+#wema .exp{
+    color: rgb(245, 240, 240);
+    margin-left: -30px;
+}
+.accessLogo2{
+    /* border: 20px solid #13d399; */
+    width: 150px;
+    height:150px;
+    position: absolute;
+    right: -1px;
+    top:20px;
+    border-radius: 100%;
+    opacity: 0.4;
+}
+#access p, i {
+    color: rgb(32, 32, 134);
+}
+#access .exp{
+    color: black;
+    margin-left: -50px;
+}
+
+#opay .nameNtype{
+    /* border:3px solid red; */
+    display: flex;
+    justify-content: space-between;
+    color:rgb(20, 20, 90);
+    align-items: center;
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 17px;
+    width: 90%;
+    margin: 0px auto;
+    top: 185px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 90;
+}
+#opay .nameNtype .type img{
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    width: 60px;
+}
+#opay .nameNtype .type .cardText{
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color:white;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+#access .nameNtype{
+    /* border:3px solid red; */
+    display: flex;
+    justify-content: space-between;
+    color: rgb(32, 32, 134);
+    align-items: center;
+    padding-left: 10px;
+    font-weight: 800;
+    font-size: 17px;
+    width: 90%;
+    margin: 0px auto;
+    top: 165px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 90;
+    text-shadow: 1px 1px 0.5px  rgba(0, 0, 0, 0.445);
+}
+
+@media (max-width:480px){
+    .container{
+        /* border:3px solid red; */
+        width: 95%;
+        margin: 0px auto;
+        position: relative;
+    }
+    #wema{
+        position: absolute;
+        left: 45px;
+    }
+    #access{
+        position: absolute;
+        left: 32.5px;
+    }
+    #opay{
+        position: absolute;
+        left: 22.5px;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <!-- wema card html -->
+        <div class="banks" id="wema">
+            <div class="innerContainer">
+                <img class="logo" src="wemalogo-removebg-preview.png" alt="" srcset="">
+                <img class="wemalogo2" src="wemaFade-removebg-preview.png"></img> 
+                <img class="chip" src="chip2.jpg" alt="">
+                <i class="fas fa-wifi"></i>
+                <div class="text">
+                    <p> 5327 9844 9427 6839</p>
+                    <p class="p2"><span class="exp">Valid:</span> 12/28</p>
+                </div>
+                <div class="nameNtype">
+                    <div class="name">
+                        Akinpelumi Taiwo S.
+                    </div>
+                    <div class="type">
+                        <img src="master2-removebg-preview.png" alt="" class="logo">
+                        <p class="cardText">Master Card</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Access card html -->
+        <div class="banks" id="access">
+            <div class="innerContainer">
+                <img class="accessLogo" src="access_logo_Text-removebg-preview.png" alt="" srcset="">
+                <img class="accessLogo2" src="access_logo-removebg-preview.png"></img> 
+                <div class="accessLine"></div>
+                <img class="chip" src="chip2.jpg" alt="">
+                
+                <div class="text">
+                    <p> 5327 9844 9427 6839</p>
+                    <p class="p2"><span class="exp">Valid</span> 12/28</p>
+                </div>
+                <div class="nameNtype">
+                    <div class="name">
+                        Akinpelumi Taiwo S.
+                    </div>
+                    <div class="type">
+                        <img src="master-removebg-preview.png" alt="" class="logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Opay card html -->
+        <div class="banks" id="opay">
+            <div class="innerContainer">
+                <img class="logo" src="Opay-Logo.png" alt="" srcset="">
+                <div class="circle"></div> 
+                <div class="dash"></div>
+                <div class="triangle"></div>
+                <img class="chip" src="chip2.jpg" alt="">
+                <i class="fas fa-wifi"></i>
+                
+                <div class="text">
+                    <p> 5327 9844 9427 6839</p>
+                    <p class="p2"><span class="exp">Expire</span> 12/28</p>
+                </div>
+                <div class="nameNtype">
+                    <div class="name">
+                        Akinpelumi Taiwo S.
+                    </div>
+                    <div class="type">
+                        <img src="master2-removebg-preview.png" alt="" class="logo">
+                        <p class="cardText">Master Card</p>
+                    </div>
+                </div>
+            </div>
+                   
+        </div>
+    </div>
+</body>
+<script>
+    var wema = document.getElementById("wema")
+    var access = document.getElementById("access")
+    var opay = document.getElementById("opay")
+    
+
+    // cards z-index
+    var wemaIndex = window.getComputedStyle(wema)
+    var opayIndex = window.getComputedStyle(opay)
+    var accessIndex = window.getComputedStyle(access)
+
+    
+    // for wema card
+    wema.addEventListener("click", ()=>{
+        //if wema is at back & acccess is in middle & opay is in front
+        if(parseInt(wemaIndex.zIndex) == 1 && parseInt(accessIndex.zIndex) == 50 && parseInt(opayIndex.zIndex) == 90 ){
+            wema.style.top = "0px";
+            opay.style.top = "260px";
+            access.style.top = "240px";
+            wema.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            access.style.height = "40%";
+            opay.style.width = "350px";
+            wema.style.zIndex = 90;
+            access.style.zIndex = 1;
+            opay.style.zIndex = 50;
+            setTimeout(()=>{
+                opay.style.width = "330px";
+                access.style.width = "300px";
+                access.style.top = "140px";
+                access.style.left = "45px";
+                opay.style.left = "32.5px";
+                opay.style.top = "170px";
+                wema.style.top = "200px";
+                wema.style.zIndex = 90;
+                wema.style.width = "350px";
+                wema.style.left = "20px";
+            }, 350)
+        } 
+        //if wema card is in middle & opay in front
+        else if(parseInt(wemaIndex.zIndex) == 50 && parseInt(opayIndex.zIndex) == 90){
+            wema.style.top = "10px";
+            opay.style.top = "280px";
+            opay.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            wema.style.height = "40%";
+            wema.style.width = "350px";
+            
+            setTimeout(()=>{
+                wema.style.zIndex = 90;
+                opay.style.zIndex = 50;
+                opay.style.height = "40%";
+                opay.style.width = "330px";
+                wema.style.top = "200px";
+                wema.style.left = "20px";
+                opay.style.left = "32.5px";
+                opay.style.top = "170px";
+            }, 350)
+        }
+        //if wema card is in middle & access in front
+        else if(parseInt(wemaIndex.zIndex) == 50 && parseInt(accessIndex.zIndex) == 90){
+            wema.style.top = "10px";
+            access.style.top = "280px";
+            access.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            wema.style.height = "40%";
+            wema.style.width = "350px";
+            
+            setTimeout(()=>{
+                wema.style.zIndex = 90;
+                access.style.zIndex = 50;
+                access.style.height = "40%";
+                access.style.width = "330px";
+                wema.style.top = "200px";
+                wema.style.left = "20px";
+                access.style.left = "32.5px";
+                access.style.top = "170px";
+            }, 350)
+        }
+        //if wema is at back & opay is in middle & access is in front
+       else if(parseInt(wemaIndex.zIndex) == 1 && parseInt(opayIndex.zIndex) == 50 && parseInt(accessIndex.zIndex) == 90 ){
+            wema.style.top = "0px";
+            access.style.top = "260px";
+            opay.style.top = "240px";
+            wema.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            opay.style.height = "40%";
+            access.style.width = "350px";
+            wema.style.zIndex = 90;
+            opay.style.zIndex = 1;
+            access.style.zIndex = 50;
+            setTimeout(()=>{
+                access.style.width = "330px";
+                opay.style.width = "300px";
+                opay.style.top = "140px";
+                opay.style.left = "45px";
+                access.style.left = "32.5px";
+                access.style.top = "170px";
+                wema.style.top = "200px";
+                wema.style.zIndex = 90;
+                wema.style.width = "350px";
+                wema.style.left = "20px";
+            }, 350)
+        } 
+        else{
+           // alert(`wema at: ${wemaIndex.zIndex}, access at: ${accessIndex.zIndex}, opay at: ${opayIndex.zIndex}`)
+            // if(parseInt(wemaIndex.zIndex) == 90){
+            //     wema.addEventListener("mouseenter", ()=>{
+            //         wema.style.backgroundColor = "black";
+            //     })
+            // }
+            var msg = "Want to use Wema card?";
+            if(confirm(msg) === true){
+                msg = "Cool!"
+            }else{
+                msg = "You canceled it!"
+            }
+            alert(msg)
+        }
+        
+        
+    })
+
+    //for opay card
+    opay.addEventListener("click", ()=>{
+        if(parseInt(opayIndex.zIndex) == 50 && parseInt(accessIndex.zIndex) == 90 && parseInt(wemaIndex.zIndex) == 1){
+            opay.style.top = "10px";
+            access.style.top = "280px";
+            access.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            opay.style.height = "40%";
+            opay.style.width = "350px";
+            setTimeout(()=>{
+                opay.style.zIndex = 90;
+                access.style.zIndex = 50;
+                access.style.height = "40%";
+                access.style.width = "330px";
+                opay.style.top = "200px";
+                opay.style.left = "20px";
+                access.style.left = "32.5px";
+                access.style.top = "170px";
+            }, 350)
+        }
+        //if opay card is in middle & wema in front
+        else if(parseInt(opayIndex.zIndex) == 50 && parseInt(wemaIndex.zIndex) == 90 && parseInt(accessIndex.zIndex) == 1){
+            opay.style.top = "10px";
+            wema.style.top = "280px";
+            wema.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            opay.style.height = "40%";
+            opay.style.width = "350px";
+            setTimeout(()=>{
+                opay.style.zIndex = 90;
+                wema.style.zIndex = 50;
+                wema.style.height = "40%";
+                wema.style.width = "330px";
+                opay.style.top = "200px";
+                opay.style.left = "20px";
+                wema.style.left = "32.5px";
+                wema.style.top = "170px";
+            }, 350)
+
+         //if opay is at back & wema is in middle & access in front
+        }else if(parseInt(opayIndex.zIndex) == 1 && parseInt(wemaIndex.zIndex) == 50 && parseInt(accessIndex.zIndex) == 90){
+            opay.style.top = "0px";
+            access.style.top = "260px";
+            wema.style.top = "240px";
+            opay.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            wema.style.height = "40%";
+            access.style.width = "350px";
+            opay.style.zIndex = 90;
+            wema.style.zIndex = 1;
+            access.style.zIndex = 50;
+            setTimeout(()=>{
+                access.style.width = "330px";
+                wema.style.width = "300px";
+                wema.style.top = "140px";
+                wema.style.left = "45px";
+                access.style.left = "32.5px";
+                access.style.top = "170px";
+                opay.style.top = "200px";
+                opay.style.zIndex = 90;
+                opay.style.width = "350px";
+                opay.style.left = "20px";
+            }, 350)
+        
+        //if opay is at back & access is in middle & wema in front
+        }else if(parseInt(opayIndex.zIndex) == 1 && parseInt(accessIndex.zIndex) == 50 && parseInt(wemaIndex.zIndex) == 90){
+            opay.style.top = "0px";
+            wema.style.top = "260px";
+            access.style.top = "240px";
+            opay.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            access.style.height = "40%";
+            wema.style.width = "350px";
+            opay.style.zIndex = 90;
+            access.style.zIndex = 1;
+            wema.style.zIndex = 50;
+            setTimeout(()=>{
+                wema.style.width = "330px";
+                access.style.width = "300px";
+                access.style.top = "140px";
+                access.style.left = "45px";
+                wema.style.left = "32.5px";
+                wema.style.top = "170px";
+                opay.style.top = "200px";
+                opay.style.zIndex = 90;
+                opay.style.width = "350px";
+                opay.style.left = "20px";
+            }, 350)
+        }else{
+            var msg = "Want to use Opay card?";
+            if(confirm(msg) === true){
+                msg = "Cool!"
+            }else{
+                msg = "You canceled it!"
+            }
+            alert(msg)
+        }
+        
+        
+    })
+
+
+    //for access card
+    access.addEventListener("click", ()=>{
+        //access is n middle and opay is in front
+        if(parseInt(accessIndex.zIndex) == 50 && parseInt(opayIndex.zIndex) == 90){
+            access.style.top = "10px";
+            opay.style.top = "280px";
+            opay.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            access.style.height = "40%";
+            access.style.width = "350px";
+            setTimeout(()=>{
+                access.style.zIndex = 90;
+                opay.style.zIndex = 50;
+                opay.style.height = "40%";
+                opay.style.width = "330px";
+                access.style.top = "200px";
+                access.style.left = "20px";
+                opay.style.left = "32.5px";
+                opay.style.top = "170px";
+            }, 350)
+
+         //if access is at back & opay is in middle & wema in front
+        }else if(parseInt(accessIndex.zIndex) == 1 && parseInt(opayIndex.zIndex) == 50 && parseInt(wemaIndex.zIndex) == 90){
+            access.style.top = "0px";
+            wema.style.top = "260px";
+            opay.style.top = "240px";
+            access.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            opay.style.height = "40%";
+            wema.style.width = "350px";
+            access.style.zIndex = 90;
+            opay.style.zIndex = 1;
+            wema.style.zIndex = 50;
+            setTimeout(()=>{
+                wema.style.width = "330px";
+                opay.style.width = "300px";
+                opay.style.top = "140px";
+                opay.style.left = "45px";
+                wema.style.left = "32.5px";
+                wema.style.top = "170px";
+                access.style.top = "200px";
+                access.style.zIndex = 90;
+                access.style.width = "350px";
+                access.style.left = "20px";
+            }, 350)
+
+            //access is in middle and wema is in front
+         }else if(parseInt(accessIndex.zIndex) == 50 && parseInt(wemaIndex.zIndex) == 90){
+            access.style.top = "10px";
+            wema.style.top = "280px";
+            wema.style.transitionDuration = "300ms";
+            access.style.transitionDelay = "100ms";
+            access.style.transitionDuration = "300ms";
+            access.style.height = "40%";
+            access.style.width = "350px";
+            setTimeout(()=>{
+                access.style.zIndex = 90;
+                wema.style.zIndex = 50;
+                wema.style.height = "40%";
+                wema.style.width = "330px";
+                access.style.top = "200px";
+                access.style.left = "20px";
+                wema.style.left = "32.5px";
+                wema.style.top = "170px";
+            }, 350)
+        //if access is at back & wema is in middle & opay in front
+    }else if(parseInt(accessIndex.zIndex) == 1 && parseInt(wemaIndex.zIndex) == 50 && parseInt(opayIndex.zIndex) == 90){
+            access.style.top = "0px";
+            opay.style.top = "260px";
+            wema.style.top = "240px";
+            access.style.transitionDuration = "300ms";
+            wema.style.transitionDelay = "100ms";
+            wema.style.transitionDuration = "300ms";
+            opay.style.transitionDelay = "100ms";
+            opay.style.transitionDuration = "300ms";
+            wema.style.height = "40%";
+            opay.style.width = "350px";
+            access.style.zIndex = 90;
+            wema.style.zIndex = 1;
+            opay.style.zIndex = 50;
+            setTimeout(()=>{
+                opay.style.width = "330px";
+                wema.style.width = "300px";
+                wema.style.top = "140px";
+                wema.style.left = "45px";
+                opay.style.left = "32.5px";
+                opay.style.top = "170px";
+                access.style.top = "200px";
+                access.style.zIndex = 90;
+                access.style.width = "350px";
+                access.style.left = "20px";
+            }, 350)
+
+            //access is in middle and wema is in front
+         }else{
+            var msg = "Want to use Access card?";
+            if(confirm(msg) === true){
+                msg = "Cool!"
+            }else{
+                msg = "You canceled it!"
+            }
+            alert(msg)
+        }
+        
+        
+    })
+</script>
+</html>
